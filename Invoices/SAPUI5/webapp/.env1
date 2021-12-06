@@ -1,0 +1,1 @@
+destination=[{"name":"Northwind","url":"Northwind.dest", "proxyHost":"127.0.0.1", "proxyPort": "8887"}]
