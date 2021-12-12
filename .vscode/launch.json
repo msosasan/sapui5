@@ -99,6 +99,66 @@
       },
       "envFile": "${workspaceFolder}/Invoices1/SAPUI5/.env7",
       "preLaunchTask": "Build Invoices1"
+    },
+    {
+      "name": "Run Invoices1-SAPUI5  Unit Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/Invoices1/invoices1-approuter/node_modules/@sap/html5-repo-mock/index.js",
+      "args": [
+        "--standalone",
+        "/logaligroupSAPUI5/test/unit/unitTests.qunit.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "cwd": "${workspaceFolder}/Invoices1/SAPUI5",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/Invoices1/SAPUI5\"}"
+      },
+      "envFile": "${workspaceFolder}/Invoices1/SAPUI5/.env8",
+      "preLaunchTask": "Build Invoices1"
+    },
+    {
+      "name": "Run Invoices1-SAPUI5 OPA Navigation",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/Invoices1/invoices1-approuter/node_modules/@sap/html5-repo-mock/index.js",
+      "args": [
+        "--standalone",
+        "/logaligroupSAPUI5/test/Integration/opaTests.qunit.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "cwd": "${workspaceFolder}/Invoices1/SAPUI5",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/Invoices1/SAPUI5\"}"
+      },
+      "envFile": "${workspaceFolder}/Invoices1/SAPUI5/.env9",
+      "preLaunchTask": "Build Invoices1"
+    },
+    {
+      "name": "Run Invoices2-SAPUI5 OPA integration test",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/Invoices2/invoices2-approuter/node_modules/@sap/html5-repo-mock/index.js",
+      "args": [
+        "--standalone",
+        "/logaligroupSAPUI5/test/integration/opaTests.qunit.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "cwd": "${workspaceFolder}/Invoices2/SAPUI5",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/Invoices2/SAPUI5\"}"
+      },
+      "envFile": "${workspaceFolder}/Invoices2/SAPUI5/.env8",
+      "preLaunchTask": "Build Invoices2"
     }
   ],
   "compounds": [],
