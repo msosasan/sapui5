@@ -2,7 +2,18 @@
 controllerName="logaligroup.SAPUI5.controller.InvoicesList"
  xmlns="sap.m" 
  xmlns:mvc="sap.ui.core.mvc">
-<List 
+ <Panel accessibleRole="Region">
+ <headerToolbar>
+<Toolbar >
+<Title text="{i18n>invoiceListTitle}"/>
+<ToolbarSpacer />
+<SearchField 
+width="50%" 
+search=".onFilterInvoices"
+placeholder="{i18n>searchFieldPlaceHolder}"/>
+</Toolbar>
+</headerToolbar>
+<Table
 id="invoiceList"
 class="sapUiResponsiveMargin" 
 width="auto" 
@@ -13,17 +24,35 @@ items="{
             group: true
             }
         }">
-<headerToolbar>
-<Toolbar >
-<Title text="{i18n>invoiceListTitle}"/>
-<ToolbarSpacer />
-<SearchField width="50%" search=".onFilterInvoices"/>
-</Toolbar>
-</headerToolbar>
+<columns>
+<Column hAlign="End" minScreenWidth="Small" demandPopin="true" width="5em" >
+<Text text="{i18n>columnQuantity}"></Text>
+</Column>
+<Column>
+<Text text="{i18n>columnName}"></Text>
+</Column>
+<Column  minScreenWidth="Small" demandPopin="true">
+<Text text="{i18n>columnStatus}"></Text>
+</Column>
+<Column minScreenWidth="Tablet">
+<Text text="{i18n>columnSupplier}"></Text>
+</Column>
+<Column hAlign="End">
+<Text text="{i18n>columnPrice}"></Text>
+</Column>
+</columns>
 <items>
-<ObjectListItem 
-title="{northwind>Quantity} x {northwind>ProductName}"
-number="{ parts: [
+<ColumnListItem type="Navigation"
+press="navigateToDetails">
+<cells>
+<ObjectNumber number="{northwind>Quantity}" emphasized="false"/>
+<ObjectIdentifier title="{northwind>ProductName}"/>
+<Text text="{
+    path: 'northwind>Status',
+    formatter: '.formatter.invoiceStatus'
+}"/>
+<Text text="{northwind>ShipperName}" />
+<ObjectNumber number="{ parts: [
                  { path: 'northwind>ExtendedPrice' },
                  { path: 'currency>/usd' } 
                  ],
@@ -32,11 +61,12 @@ number="{ parts: [
              showMeasure: false
          }
          }"
-numberUnit="{currency>/usd}"
-numberState="{=${northwind>ExtendedPrice} > 9 ? 'Success' : 'Error'}"
-type="Navigation"
-press="navigateToDetails">
-</ObjectListItem>
+unit="{currency>/usd}"
+state="{=${northwind>ExtendedPrice} > 50 ? 'Success' : 'Error'}"
+/>
+</cells>
+</ColumnListItem>
 </items>
-</List>
+</Table>
+</Panel>
 </mvc:View>

@@ -33,7 +33,13 @@ number="{ parts: [
          }
          }"
 numberUnit="{currency>/usd}"
-numberState="{=${northwind>ExtendedPrice} > 9 ? 'Success' : 'Error'}">
+numberState="{=${northwind>ExtendedPrice} > 50 ? 'Success' : 'Error'}">
+<firstStatus>
+					<ObjectStatus text="{
+						path: 'invoice>Status',
+						formatter: '.formatter.invoiceStatus'
+					}"/>
+				</firstStatus>
 </ObjectListItem>
 </items>
 </List>
