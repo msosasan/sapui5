@@ -5,7 +5,7 @@
 <f:SimpleForm id="form" editable="true">
 <f:content>
 <Label text="{i18n>labelPerson}" labelFor="name"/>
-<Input id="name" width="40%"/>
+<Input id="name" width="50%"/>
 </f:content>
 </f:SimpleForm>
 </Panel>

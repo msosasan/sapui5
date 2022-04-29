@@ -24,6 +24,21 @@
           "localUri": "localService/metadata.xml"
         }
       }
+    },
+    "crossNavigation": {
+        "inbounds": {
+            "logaligroup-sapui5-inbound": {
+                "signature": {
+                    "parameters": {},
+                    "additionalParameters": "allowed"
+                },
+                "semanticObject": "InvoiceL",
+                "action": "display",
+                "title": "{{flpTitle}}",
+                "subTitle": "{{flpSubtitle}}",
+                "icon": ""
+            }
+        }
     }
   },
   "sap.ui": {
